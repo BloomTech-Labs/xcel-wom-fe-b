@@ -1,5 +1,6 @@
 import React, {useState}  from 'react';
 import 'antd/dist/antd.css';
+import './WorkOrderForm.css';
 
 import {
     Form,
@@ -48,7 +49,7 @@ function handleDropdownStatus(value,e) {
   return (
     <>
 
-    <h1>Work Order Form</h1>
+    <h1 className="Header">Work Order Form</h1>
     <Form
         labelCol={{
           span: 4,
@@ -62,8 +63,8 @@ function handleDropdownStatus(value,e) {
 
       >
        
-        <Form.Item label="Work Order Title" >
-          <Input type="text" name='title'  onChange={handleChange} />
+        <Form.Item label="Work Order Title" help="Maximum of 150 characters allowed."  className="WorkOrderTitle">
+          <Input type="text" name='title' maxlength="150"  onChange={handleChange} />
         </Form.Item>
         <Form.Item label="Date">
           <Input type="text" name='date'  value={new Date().toISOString().slice(0,10)} placeholder="yyyy-mm-dd" onChange={handleChange}/>
