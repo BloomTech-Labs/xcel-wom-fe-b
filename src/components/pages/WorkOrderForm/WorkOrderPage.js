@@ -24,6 +24,17 @@ function WorkOrderPage({ LoadingComponent }) {
     },
   ]);
 
+  const [fileState, setFileState] = useState([]);
+
+
+  const handleFileUpload = e => {
+    const reader = new FileReader();
+    const file = e.target.files[0];
+    reader.onloadend = () => {
+      setFileState(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
 
   const handleChange = (e) => {
@@ -41,7 +52,7 @@ function handleDropdownStatus(value,e) {
 }
 
   const handleSubmit = (e) =>{
-    console.warn("added", {workOrder})
+    console.warn("added", {workOrder,fileState})
 }
 
 
@@ -64,7 +75,7 @@ function handleDropdownStatus(value,e) {
       >
        
         <Form.Item label="Work Order Title" help="Maximum of 150 characters allowed."  className="WorkOrderTitle">
-          <Input type="text" name='title' maxlength="150"  onChange={handleChange} />
+          <Input type="text" name='title' maxLength="150"  onChange={handleChange} />
         </Form.Item>
         <Form.Item label="Date">
           <Input type="text" name='date'  value={new Date().toISOString().slice(0,10)} placeholder="yyyy-mm-dd" onChange={handleChange}/>
@@ -95,7 +106,7 @@ function handleDropdownStatus(value,e) {
         </Form.Item>
 
         <Form.Item label="Attachments">
-          <Input type='file'/>
+          <Input type='file' name="attachment"onChange={handleFileUpload}/>
         </Form.Item>
         
         <Form.Item >
