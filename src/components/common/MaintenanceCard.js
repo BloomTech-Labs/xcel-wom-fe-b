@@ -10,10 +10,6 @@ function MaintenanceCard({ status, priority, description, title }) {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
