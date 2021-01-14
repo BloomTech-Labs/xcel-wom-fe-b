@@ -2,8 +2,6 @@
 
 For steps on how to work with this repository [please see here](https://docs.labs.lambdaschool.com/labs-spa-starter/)
 
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your first Pull-Request is merged. This is intended to be a guideline. Feel free to add your own flare to it.
-
 # xcel-wom
 
 
@@ -12,26 +10,28 @@ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste
 
 ## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                                      [Jose Sustaita](https://github.com/JoseSustaita)                                                       |                                                       [Emilio Dellrodar](https://github.com/Dellrodar)                                                        |                                                      [Matthew Taylor](https://github.com/MTaylor-tech)                                                       |                                                       [Idong Essien](https://github.com/idongessien)                                                        |                                                      [Devin Ong](https://github.com/hoangvu71)
+|                                                      [Jose Sustaita](https://github.com/JoseSustaita)                                                       |                                                      [Matthew Taylor](https://github.com/MTaylor-tech)                                                       |                                                       [Idong Essien](https://github.com/idongessien)                                                        |                                                      [Devin Ong](https://github.com/hoangvu71)
 |                                                        [Jonathan Chiaverini](https://github.com/JC8747)
-|                                                        [Francois Cherry](https://github.com/swaCreates)                                                       |
 | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |
+| [<img src="https://media-exp1.licdn.com/dms/image/C4E35AQEfsK1QE-ZX3g/profile-framedphoto-shrink_400_400/0/1595682108005?e=1610676000&v=beta&t=xD99rV7INPM-kp4IJTEef7P7SFqjJ2CXP_z0xGmHzKk" width = "200" />](https://github.com/JoseSustaita) |
+[<img src="https://media-exp1.licdn.com/dms/image/C5635AQFP-PKf92gNAg/profile-framedphoto-shrink_400_400/0/1608514756436?e=1610676000&v=beta&t=etcFE9WuCeSic1ByOHV_xcQQPFZISYhDckcFB0eUs4A" width = "200" />](https://github.com/MTaylor-tech) |
+[<img src="https://media-exp1.licdn.com/dms/image/C4E35AQGm5pttBsoVOg/profile-framedphoto-shrink_400_400/0/1610552490557?e=1610676000&v=beta&t=dA4XGRd-0eW0vDlJQptZxtiElW6Upqgj0zNd3f5-KCQ" width = "200" />](https://github.com/idongessien) |
+[<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/hoangvu71) |
+[<img src="https://media-exp1.licdn.com/dms/image/C5635AQEkh-gBHtxdOg/profile-framedphoto-shrink_400_400/0/1604632657173?e=1610676000&v=beta&t=8Aea0Z0ehAFLDFDYN76R2wZR0xMUHmHPqdjufrhOTbg" width = "200" />](https://github.com/JC8747) |
+|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JoseSustaita)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MTaylor-tech)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/idongessien)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/hoangvu71)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JC8747)                            |
+|
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josesustaita/)                |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/taylorjadepalmer/)                 |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/idongessien/)                |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jonathanchiaverini/)                |
 
 <br>
 <br>
-
-🚫 Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 - Fork and clone the repo to install it as your own remote.
   - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Front End Repository.
@@ -50,7 +50,7 @@ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste
 
 #### Front end deployed to `🚫insert hosting service here`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/xcel-wom-be-b) built using:
 
 #### 🚫 back end framework goes here
 
