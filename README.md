@@ -10,16 +10,16 @@ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste
 
 ## Contributors
 
-|[Jose Sustaita](https://github.com/JoseSustaita)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josesustaita/)| <br> [<img src="https://avatars3.githubusercontent.com/u/8072587?s=400&u=2d285e09f8394ea773338042a6530393b72c468a&v=4" width = "200" />](https://github.com/JoseSustaita)<br>
-:-----------------------------------------------------------------------------------------------------------------------------------------:
-[Matthew Taylor](https://github.com/MTaylor-tech)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/taylorjadepalmer/)| <br> [<img src="https://avatars1.githubusercontent.com/u/3969757?s=460&u=dff67932da9702cf48b0868eb3ca7ea6a0563ca0&v=4" width = "200" />](https://github.com/MTaylor-tech)<br>
-:-------------------------------------------------------------------------------------------------------------------------------------------:
-[Idong Essien](https://github.com/idongessien)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/idongessien/)| <br> [<img src="https://avatars1.githubusercontent.com/u/22062405?s=460&u=f8f768b5e18a50bfac5e94932028fcef08b0e5f3&v=4" width = "200" />](https://github.com/idongessien) <br>
-:-------------------------------------------------------------------------------------------------------------------------------------------:
-[Devin Ong](https://github.com/hoangvu71)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)| <br> [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/hoangvu71) <br>
-:-------------------------------------------------------------------------------------------------------------------------------------------:
-[Jonathan Chiaverini](https://github.com/JC8747)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jonathanchiaverini/)|<br> [<img src="https://avatars1.githubusercontent.com/u/55720706?s=460&u=bf12482f2a0eac9f2c5dcebac048d568027aa057&v=4" width = "200" />](https://github.com/JC8747) <br>
-:-------------------------------------------------------------------------------------------------------------------------------------------:
+|[Jose Sustaita](https://github.com/JoseSustaita) |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josesustaita/)| <br> [<img src="https://avatars3.githubusercontent.com/u/8072587?s=400&u=2d285e09f8394ea773338042a6530393b72c468a&v=4" width = "200" />](https://github.com/JoseSustaita)<br>
+:-------------------------------------------------:
+[Matthew Taylor](https://github.com/MTaylor-tech) |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/taylorjadepalmer/)| <br> [<img src="https://avatars1.githubusercontent.com/u/3969757?s=460&u=dff67932da9702cf48b0868eb3ca7ea6a0563ca0&v=4" width = "200" />](https://github.com/MTaylor-tech)<br>
+:-------------------------------------------------:
+[Idong Essien](https://github.com/idongessien) |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/idongessien/)| <br> [<img src="https://avatars1.githubusercontent.com/u/22062405?s=460&u=f8f768b5e18a50bfac5e94932028fcef08b0e5f3&v=4" width = "200" />](https://github.com/idongessien) <br>
+:-------------------------------------------------:
+[Devin Ong](https://github.com/hoangvu71) |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)| <br> [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/hoangvu71) <br>
+:-------------------------------------------------:
+[Jonathan Chiaverini](https://github.com/JC8747) |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jonathanchiaverini/)|<br> [<img src="https://avatars1.githubusercontent.com/u/55720706?s=460&u=bf12482f2a0eac9f2c5dcebac048d568027aa057&v=4" width = "200" />](https://github.com/JC8747) <br>
+:-------------------------------------------------:
 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JoseSustaita)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MTaylor-tech)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/idongessien)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/hoangvu71)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JC8747)                            |
 |
 
