@@ -1,29 +1,41 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
+import { getAuthHeader } from '../../api/index';
+import axios from 'axios';
+import { useOktaAuth } from '@okta/okta-react';
 
 import { Form, Input, Button, Select } from 'antd';
 
 function WorkOrderPage({ LoadingComponent }) {
-  const [workOrder, setWorkOrder] = useState([
-    {
-      title: '',
-      date: new Date().toISOString().slice(0, 10),
-      priority: '',
-      status: '',
-      description: '',
-    },
-  ]);
+  //State
+  const [workOrder, setWorkOrder] = useState({
+    title: '',
+    description: '',
+    company: 1,
+    property: 1,
+    createdBy: '00ulthapbErVUwVJy4x6',
+    assignedTo: '00ulthapbErVUwVJy4x6',
+    priority: 2,
+    status: 1,
+  });
 
-  const [fileState, setFileState] = useState([]);
+  //API Calls
 
-  const handleFileUpload = e => {
-    const reader = new FileReader();
-    const file = e.target.files[0];
-    reader.onloadend = () => {
-      setFileState(reader.result);
-    };
-    reader.readAsDataURL(file);
+  const WOurl = 'https://xcel-wom-api-b.herokuapp.com/workOrder';
+  const { authState } = useOktaAuth();
+
+  const postWO = (url, authState) => {
+    const headers = getAuthHeader(authState);
+    if (!url) {
+      throw new Error('No URL provided');
+    }
+    return axios
+      .post(url, workOrder, { headers })
+      .then(res => JSON.parse(res.data))
+      .catch(err => err);
   };
+
+  //Handle changes
 
   const handleChange = e => {
     setWorkOrder({ ...workOrder, [e.target.name]: e.target.value });
@@ -38,7 +50,7 @@ function WorkOrderPage({ LoadingComponent }) {
   }
 
   const handleSubmit = e => {
-    console.warn('added', { workOrder, fileState });
+    postWO(WOurl, authState);
   };
 
   return (
@@ -76,19 +88,19 @@ function WorkOrderPage({ LoadingComponent }) {
         </Form.Item>
         <Form.Item label="Priority">
           <Select name="priority" onChange={handleDropdownPriority}>
-            <Select.Option value="critcal">Critical</Select.Option>
-            <Select.Option value="high">High</Select.Option>
-            <Select.Option value="medium">Medium</Select.Option>
-            <Select.Option value="low">Low</Select.Option>
+            <Select.Option value={0}>Critical</Select.Option>
+            <Select.Option value={1}>High</Select.Option>
+            <Select.Option value={2}>Medium</Select.Option>
+            <Select.Option value={3}>Low</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Status">
           <Select name="status" onChange={handleDropdownStatus}>
-            <Select.Option value="unassigned">Unassigned</Select.Option>
-            <Select.Option value="inProgress">In Progress</Select.Option>
-            <Select.Option value="pendingReview">Pending Review</Select.Option>
-            <Select.Option value="completed">Completed</Select.Option>
-            <Select.Option value="closed">Closed</Select.Option>
+            <Select.Option value={0}>Unassigned</Select.Option>
+            <Select.Option value={1}>In Progress</Select.Option>
+            <Select.Option value={2}>Pending Review</Select.Option>
+            <Select.Option value={3}>Completed</Select.Option>
+            <Select.Option value={4}>Closed</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Work Order Description">
@@ -96,7 +108,7 @@ function WorkOrderPage({ LoadingComponent }) {
         </Form.Item>
 
         <Form.Item label="Attachments">
-          <Input type="file" name="attachment" onChange={handleFileUpload} />
+          <Input type="file" name="attachment" />
         </Form.Item>
 
         <Form.Item>
