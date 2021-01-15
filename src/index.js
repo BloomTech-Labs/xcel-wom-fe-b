@@ -19,6 +19,7 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { WorkOrderPage } from './components/pages/WorkOrderForm';
 
+// Set up and connect Redux store
 import { createStore } from 'redux';
 import allReducers from './state/reducers';
 import { Provider } from 'react-redux';
