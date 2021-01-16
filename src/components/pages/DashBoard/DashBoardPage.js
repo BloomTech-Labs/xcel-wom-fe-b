@@ -7,10 +7,11 @@ import axios from 'axios';
 function DashBoardPage(props) {
   const [workorders, setWorkorders] = useState([]);
 
+  //Okta auth
   const { authState } = useOktaAuth();
   const headers = getAuthHeader(authState);
-  const WOurl = 'https://xcel-wom-api-b.herokuapp.com/workOrders';
 
+  // API GET CALL
   useEffect(() => {
     axios
       .get(`https://xcel-wom-api-b.herokuapp.com/workOrders`, { headers })
@@ -24,11 +25,21 @@ function DashBoardPage(props) {
       });
   }, []);
 
-  console.log(workorders[0]);
+  console.log(workorders);
 
   return (
     <div>
-      <p>Hello</p>
+      {workorders.map(order => {
+        return (
+          <MaintenanceCard
+            key={order.id}
+            title={order.title}
+            status={order.status.name}
+            priority={order.priority.name}
+            description={order.description}
+          />
+        );
+      })}
     </div>
   );
 }

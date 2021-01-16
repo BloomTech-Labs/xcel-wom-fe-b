@@ -20,8 +20,8 @@ function MaintenanceCard({ status, priority, description, title }) {
         style={{ width: 300 }}
         onClick={showModal}
       >
-        <p>{status || 'Status'}</p>
-        <p>{priority || 'Priority'}</p>
+        <p>{`Status: ${status}` || 'Status'}</p>
+        <p>{`Priority: ${priority}` || 'Priority'}</p>
         <p>{description || 'Description...'}</p>
       </Card>
 
