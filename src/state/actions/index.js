@@ -3,36 +3,11 @@
 // Actions should be focused to a single purpose. 
 // You can have multiple action creators per file if it makes sense to the purpose those action creators are serving. 
 // Declare action TYPES at the top of the file
-
-function submitOrder() {
-    return {
-        type: 'SUBMIT_ORDER'
-    }
-}
-
-function markUrgent() {
-    return {
-        type: 'MARK_URGENT'
-    }
-}
-
-function markNormal() {
-    return {
-        type: 'MARK_NORMAL'
-    }
-}
-
-function inProgress() {
-    return {
-        type: 'IN_PROGRESS'
-    }
-}
-
-function completed() {
-    return {
-        type: 'COMPLETED'
-    }
-}
+import submitOrder from './submitOrder';
+import markUrgent from './markUrgent';
+import markNormal from './markNormal';
+import inProgress from './inProgress';
+import completed from './completed';
 
 export {
     submitOrder,
