@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import MaintenceWOForm from './MaintenanceWOForm';
 import { Modal } from 'antd';
 
-function MaintenanceCard({ status, priority, description, title }) {
+function MaintenanceCard({ status, priority, description, title, onClick }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -18,22 +18,12 @@ function MaintenanceCard({ status, priority, description, title }) {
       <Card
         title={title || 'Work Order Title'}
         style={{ width: 300 }}
-        onClick={showModal}
+        onClick={onClick}
       >
         <p>{`Status: ${status}` || 'Status'}</p>
         <p>{`Priority: ${priority}` || 'Priority'}</p>
         <p>{description || 'Description...'}</p>
       </Card>
-
-      <Modal
-        title="Edit Work Order"
-        visible={isModalVisible}
-        onCancel={handleCancel}
-        cancelButtonProps={{ style: { display: 'none' } }}
-        okButtonProps={{ style: { display: 'none' } }}
-      >
-        <MaintenceWOForm />
-      </Modal>
     </div>
   );
 }
