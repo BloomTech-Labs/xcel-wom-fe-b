@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { getAuthHeader } from '../../api/index';
 import axios from 'axios';
 import { useOktaAuth } from '@okta/okta-react';
+import { postWO } from '../../api/index';
 
 import { Form, Input, Button, Select } from 'antd';
 
@@ -19,21 +20,8 @@ function WorkOrderPage({ LoadingComponent }) {
     status: 1,
   });
 
-  //API Calls
-
-  const WOurl = 'https://xcel-wom-api-b.herokuapp.com/workOrder';
+  //Auth for api call
   const { authState } = useOktaAuth();
-
-  const postWO = (url, authState) => {
-    const headers = getAuthHeader(authState);
-    if (!url) {
-      throw new Error('No URL provided');
-    }
-    return axios
-      .post(url, workOrder, { headers })
-      .then(res => JSON.parse(res.data))
-      .catch(err => err);
-  };
 
   //Handle changes
 
@@ -50,7 +38,7 @@ function WorkOrderPage({ LoadingComponent }) {
   }
 
   const handleSubmit = e => {
-    postWO(WOurl, authState);
+    postWO(authState, workOrder);
   };
 
   return (
