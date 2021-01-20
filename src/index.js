@@ -17,7 +17,7 @@ import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import WorkOrderPage from './components/common/MaintenanceWOForm';
+import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
 import MaintenanceCard from './components/common/MaintenanceCard';
 
 ReactDOM.render(

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
-import { getAuthHeader } from '../../api/index';
-import axios from 'axios';
 import { useOktaAuth } from '@okta/okta-react';
 import { postWO } from '../../api/index';
 
@@ -76,19 +74,19 @@ function WorkOrderPage({ LoadingComponent }) {
         </Form.Item>
         <Form.Item label="Priority">
           <Select name="priority" onChange={handleDropdownPriority}>
-            <Select.Option value={0}>Critical</Select.Option>
-            <Select.Option value={1}>High</Select.Option>
-            <Select.Option value={2}>Medium</Select.Option>
-            <Select.Option value={3}>Low</Select.Option>
+            <Select.Option value={1}>Critical</Select.Option>
+            <Select.Option value={2}>High</Select.Option>
+            <Select.Option value={3}>Medium</Select.Option>
+            <Select.Option value={4}>Low</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Status">
           <Select name="status" onChange={handleDropdownStatus}>
-            <Select.Option value={0}>Unassigned</Select.Option>
-            <Select.Option value={1}>In Progress</Select.Option>
-            <Select.Option value={2}>Pending Review</Select.Option>
-            <Select.Option value={3}>Completed</Select.Option>
-            <Select.Option value={4}>Closed</Select.Option>
+            <Select.Option value={1}>Unassigned</Select.Option>
+            <Select.Option value={2}>In Progress</Select.Option>
+            <Select.Option value={3}>Pending Review</Select.Option>
+            <Select.Option value={4}>Completed</Select.Option>
+            <Select.Option value={5}>Closed</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Work Order Description">
