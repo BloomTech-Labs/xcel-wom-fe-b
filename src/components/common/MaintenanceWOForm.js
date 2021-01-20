@@ -1,4 +1,3 @@
-import { Descriptions } from 'antd';
 import React, { useState } from 'react';
 
 function MaintenanceWOForm({ title, date, priority, status, description }) {
@@ -14,6 +13,10 @@ function MaintenanceWOForm({ title, date, priority, status, description }) {
   const handleSubmit = e => {
     console.warn('added', { workOrder });
   };
+  const handleComplete = e => {
+    setWorkOrder({ status: 2 });
+    console.warn('completed', { workOrder });
+  };
   return (
     <div>
       <form>
@@ -27,6 +30,7 @@ function MaintenanceWOForm({ title, date, priority, status, description }) {
           <input onChange={handleChange} />
         </div>
         <button onClick={handleSubmit}>Update Work Order</button>
+        <button onClick={handleComplete}>Mark Complete</button>
       </form>
     </div>
   );

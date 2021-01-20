@@ -37,8 +37,6 @@ function DashBoardPage(props) {
       });
   }, []);
 
-  console.log(workorders);
-
   return (
     <div>
       {workorders.map(order => {
