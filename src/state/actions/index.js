@@ -3,3 +3,17 @@
 // Actions should be focused to a single purpose. 
 // You can have multiple action creators per file if it makes sense to the purpose those action creators are serving. 
 // Declare action TYPES at the top of the file
+
+//example actions for counter
+export const increment = (nr) => {
+    return {
+        type: 'INCREMENT',
+        payload: nr
+    }
+}
+
+export const decrement = () => {
+    return {
+        type: 'DECREMENT'
+    }
+}
