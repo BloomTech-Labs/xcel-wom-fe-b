@@ -17,7 +17,9 @@ import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+
 import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
+
 import MaintenanceCard from './components/common/MaintenanceCard';
 
 ReactDOM.render(
@@ -56,6 +58,7 @@ function App() {
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/work-order" component={WorkOrderPage} />
         <SecureRoute path="/card" component={MaintenanceCard} />
+
 
         <Route component={NotFoundPage} />
       </Switch>
