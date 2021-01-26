@@ -4,12 +4,14 @@ import { useOktaAuth } from '@okta/okta-react';
 import { getAuthHeader } from '../../../api/index';
 import { Modal } from 'antd';
 import MaintenceWOForm from '../../common/MaintenanceWOForm';
+import WorkOrderPage from '../WorkOrderForm/WorkOrderPage';
 
 import axios from 'axios';
 
 function DashBoardPage(props) {
   const [workorders, setWorkorders] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [currentWO, setCurrentWo] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -19,6 +21,11 @@ function DashBoardPage(props) {
     setIsModalVisible(false);
   };
 
+  const ShowWo = Wo => {
+    setCurrentWo(Wo);
+    setIsModalVisible(true);
+  };
+
   //Okta auth
   const { authState } = useOktaAuth();
   const headers = getAuthHeader(authState);
@@ -26,11 +33,12 @@ function DashBoardPage(props) {
   // API GET CALL
   useEffect(() => {
     axios
-      .get(`https://xcel-wom-api-b.herokuapp.com/workOrders`, { headers })
+      .get(`https://xcel-wom-api-b.herokuapp.com/company/1/order`, { headers })
       .then(response => {
         const orders = response.data;
         console.log('These are the WO: ', orders);
         setWorkorders(orders);
+        setCurrentWo(orders[0]);
       })
       .catch(error => {
         console.log(error);
@@ -39,6 +47,16 @@ function DashBoardPage(props) {
 
   return (
     <div>
+      {/* <button>Create Work Order</button>
+      <Modal
+        title="Edit Work Order"
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        cancelButtonProps={{ style: { display: 'none' } }}
+        okButtonProps={{ style: { display: 'none' } }}
+      >
+        <WorkOrderPage />
+      </Modal> */}
       {workorders.map(order => {
         return (
           <>
@@ -48,7 +66,7 @@ function DashBoardPage(props) {
               status={order.status.name}
               priority={order.priority.name}
               description={order.description}
-              onClick={showModal}
+              onClick={() => ShowWo(order)}
             />
             <Modal
               title="Edit Work Order"
@@ -57,14 +75,18 @@ function DashBoardPage(props) {
               cancelButtonProps={{ style: { display: 'none' } }}
               okButtonProps={{ style: { display: 'none' } }}
             >
-              <MaintenceWOForm
-                key={order.id}
-                title={order.title}
-                date={order.createdby.created_at}
-                priority={order.priority.name}
-                status={order.status.name}
-                description={order.description}
-              />
+              {currentWO ? (
+                <MaintenceWOForm
+                  key={currentWO.id}
+                  title={currentWO.title}
+                  date={currentWO.createdby.created_at}
+                  priority={currentWO.priority.name}
+                  status={currentWO.status.name}
+                  description={currentWO.description}
+                />
+              ) : (
+                ''
+              )}
             </Modal>
           </>
         );
