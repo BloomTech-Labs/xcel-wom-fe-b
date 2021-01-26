@@ -11,14 +11,17 @@ import axios from 'axios';
 function DashBoardPage(props) {
   const [workorders, setWorkorders] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
   const [currentWO, setCurrentWo] = useState(false);
 
   const showModal = () => {
-    setIsModalVisible(true);
+    setIsFormVisible(true);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setIsFormVisible(false);
   };
 
   const ShowWo = Wo => {
@@ -47,16 +50,16 @@ function DashBoardPage(props) {
 
   return (
     <div>
-      {/* <button>Create Work Order</button>
+      <button onClick={showModal}>Create Work Order</button>
       <Modal
         title="Edit Work Order"
-        visible={isModalVisible}
+        visible={isFormVisible}
         onCancel={handleCancel}
         cancelButtonProps={{ style: { display: 'none' } }}
         okButtonProps={{ style: { display: 'none' } }}
       >
         <WorkOrderPage />
-      </Modal> */}
+      </Modal>
       {workorders.map(order => {
         return (
           <>
