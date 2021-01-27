@@ -2,8 +2,13 @@
 // This allows for the simplification of flow when importing reducers into your actions throughout your app.
 import updateReducer from './updateReducer';
 
+const rootReducer = () => {
+    return "";
+}
+
 export {
     updateReducer,
+    rootReducer
 };
 
 

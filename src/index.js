@@ -18,9 +18,12 @@ import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
+import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
+import MaintenanceCard from './components/common/MaintenanceCard';
+
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './state/reducers';
+import { rootReducer } from './state/reducers';
 
 const store = createStore(rootReducer);
 

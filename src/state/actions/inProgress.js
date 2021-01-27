@@ -1,5 +1,6 @@
-export function inProgress() {
+export function inProgress(id) {
     return {
-        type: 'IN_PROGRESS'
+        type: 'IN_PROGRESS',
+        id: { id }
     }
 }
