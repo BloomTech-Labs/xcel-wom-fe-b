@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-function MaintenanceWOForm({ title, date, priority, status, description }) {
+function MaintenanceWOForm({ title, date, priority, status, description, id }) {
   const [workOrder, setWorkOrder] = useState({
     comment: '',
-    status: 1,
+    status: '',
   });
 
   const handleChange = e => {
@@ -11,12 +12,16 @@ function MaintenanceWOForm({ title, date, priority, status, description }) {
   };
 
   const handleSubmit = e => {
-    console.warn('added', { workOrder });
+    axios.put(`https://xcel-wom-api-b.herokuapp.com/company/1/order/${id}`, {
+      workOrder,
+    });
   };
   const handleComplete = e => {
-    setWorkOrder({ status: 2 });
-    console.warn('completed', { workOrder });
+    axios.put(`https://xcel-wom-api-b.herokuapp.com/company/1/order/${id}`, {
+      status: 5,
+    });
   };
+
   return (
     <div>
       <form>
@@ -27,7 +32,7 @@ function MaintenanceWOForm({ title, date, priority, status, description }) {
         <p>{description}</p>
         <div>
           <p>Comments:</p>
-          <input onChange={handleChange} />
+          <input onChange={handleChange} name="comment" />
         </div>
         <button onClick={handleSubmit}>Update Work Order</button>
         <button onClick={handleComplete}>Mark Complete</button>

@@ -86,6 +86,7 @@ function DashBoardPage(props) {
                   priority={currentWO.priority.name}
                   status={currentWO.status.name}
                   description={currentWO.description}
+                  id={currentWO.id}
                 />
               ) : (
                 ''
