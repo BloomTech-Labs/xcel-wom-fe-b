@@ -23,6 +23,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './state/reducers';
 
+import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
+import MaintenanceCard from './components/common/MaintenanceCard';
+
 const store = createStore(rootReducer);
 
 ReactDOM.render(
