@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { useOktaAuth } from '@okta/okta-react';
-import { postWO } from '../../../api/index';
+import { postWO } from '../../api/index';
 
 import { Form, Input, Button, Select } from 'antd';
 

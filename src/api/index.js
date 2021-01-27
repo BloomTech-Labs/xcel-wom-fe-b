@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // we will define a bunch of API calls here.
 const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
+const WOurl = `${process.env.REACT_APP_API_URI}/workOrder`;
 
 const sleep = time =>
   new Promise(resolve => {
@@ -49,4 +50,22 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData };
+const postWO = (authState, workOrder) => {
+  const headers = getAuthHeader(authState);
+  if (!WOurl) {
+    throw new Error('No URL provided');
+  }
+  return axios
+    .post(WOurl, workOrder, { headers })
+    .then(res => JSON.parse(res.data))
+    .catch(err => err);
+};
+
+export {
+  sleep,
+  getExampleData,
+  getProfileData,
+  getDSData,
+  getAuthHeader,
+  postWO,
+};
