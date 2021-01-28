@@ -23,7 +23,7 @@ const onboard = () => {
 
   return (
     <SafeAreaView style={styles.root}>
-      <Text style={styles.title}>Underline example</Text>
+      <Text style={styles.title}>Enter Code</Text>
       <CodeField
         ref={ref}
         {...props}
