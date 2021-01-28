@@ -81,12 +81,15 @@ function DashBoardPage(props) {
               {currentWO ? (
                 <MaintenceWOForm
                   key={currentWO.id}
+                  id={currentWO.id}
                   title={currentWO.title}
                   date={currentWO.createdby.created_at}
                   priority={currentWO.priority.name}
                   status={currentWO.status.name}
                   description={currentWO.description}
-                  id={currentWO.id}
+                  comments={currentWO.comments.map(item => {
+                    return item.comment;
+                  })}
                 />
               ) : (
                 ''
