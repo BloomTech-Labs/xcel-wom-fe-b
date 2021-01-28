@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from 'react';
+import { SafeAreaView, Text, View } from 'react-native';
 
 import {
   CodeField,
@@ -14,7 +15,7 @@ const CELL_COUNT = 4;
 
 const onboard = () => {
   const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
+  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
@@ -32,11 +33,12 @@ const onboard = () => {
         rootStyle={styles.codeFieldRoot}
         keyboardType="number-pad"
         textContentType="oneTimeCode"
-        renderCell={({index, symbol, isFocused}) => (
+        renderCell={({ index, symbol, isFocused }) => (
           <View
             onLayout={getCellOnLayoutHandler(index)}
             key={index}
-            style={[styles.cellRoot, isFocused && styles.focusCell]}>
+            style={[styles.cellRoot, isFocused && styles.focusCell]}
+          >
             <Text style={styles.cellText}>
               {symbol || (isFocused ? <Cursor /> : null)}
             </Text>
