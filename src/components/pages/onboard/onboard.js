@@ -1,52 +1,61 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import OtpInput from 'react-otp-input';
 
-import {
-  CodeField,
-  Cursor,
-  useBlurOnFulfill,
-  useClearByFocusCell,
-} from 'react-native-confirmation-code-field';
+export default class onboard extends Component {
+  state = { otp: '' };
 
-import styles from './styles';
+  handleChange = otp => this.setState({ otp });
 
-const CELL_COUNT = 4;
+/*   clearOtp = () => {
+    this.setState({ otp: '' });
+  };
 
-const onboard = () => {
-  const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
-  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-    value,
-    setValue,
-  });
+  handleCheck = e => {
+    const { name } = e.target;
+    this.setState(prevState => ({ [name]: !prevState[name] }));
+  };
 
-  return (
-    <SafeAreaView style={styles.root}>
-      <Text style={styles.title}>Enter Code</Text>
-      <CodeField
-        ref={ref}
-        {...props}
-        value={value}
-        onChangeText={setValue}
-        cellCount={CELL_COUNT}
-        rootStyle={styles.codeFieldRoot}
-        keyboardType="number-pad"
-        textContentType="oneTimeCode"
-        renderCell={({ index, symbol, isFocused }) => (
-          <View
-            onLayout={getCellOnLayoutHandler(index)}
-            key={index}
-            style={[styles.cellRoot, isFocused && styles.focusCell]}
-          >
-            <Text style={styles.cellText}>
-              {symbol || (isFocused ? <Cursor /> : null)}
-            </Text>
-          </View>
-        )}
-      />
-    </SafeAreaView>
-  );
-};
+  handleSubmit = e => {
+    e.preventDefault();
+    alert(this.state.otp);
+  }; */
 
-export default onboard;
+  render() {
+    return (
+      <div className="container">
+        <div className="view">
+          <div className="card">
+            <form onSubmit={this.handleSubmit}>
+              <p>Enter Verification Code</p>
+              <OtpInput
+                value={this.state.otp}
+                onChange={this.handleChange}
+                numInputs={6}
+                separator={<span>-</span>}
+              />
+              <div className="margin-top--small">
+              </div>
+              <div className="btn-row">
+                <button
+                  className="btn margin-top--large"
+                  type="button"
+                  disabled={isDisabled || otp.trim() === ''}
+                  onClick={this.clearOtp}
+                >
+                  Clear
+                </button>
+                <button
+                  className="btn margin-top--large"
+                  disabled={otp.length < numInputs}
+                >
+                  Get OTP
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
