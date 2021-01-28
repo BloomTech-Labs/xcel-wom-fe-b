@@ -18,14 +18,21 @@ import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
-import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './state/reducers';
 
+import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
 import MaintenanceCard from './components/common/MaintenanceCard';
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <Provider store={ store }>
+        <App />
+      </Provider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
