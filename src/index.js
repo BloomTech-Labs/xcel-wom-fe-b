@@ -21,11 +21,14 @@ import { WorkOrderPage } from './components/pages/WorkOrderForm';
 import DashBoardPage from './components/pages/DashBoard/DashBoardPage';
 
 import MaintenanceCard from './components/common/MaintenanceCard';
+import { WOProvider } from './state/WOContext';
 
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <WOProvider>
+        <App />
+      </WOProvider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
@@ -60,7 +63,6 @@ function App() {
 
         <SecureRoute path="/dashboard" component={DashBoardPage} />
         <SecureRoute path="/card" component={MaintenanceCard} />
-
 
         <Route component={NotFoundPage} />
       </Switch>
