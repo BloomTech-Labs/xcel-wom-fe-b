@@ -90,6 +90,7 @@ function DashBoardPage(props) {
                   comments={currentWO.comments.map(item => {
                     return item.comment;
                   })}
+                  currentWO={currentWO}
                 />
               ) : (
                 ''
