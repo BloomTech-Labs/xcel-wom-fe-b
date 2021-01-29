@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import OtpInput from 'react-otp-input';
-import './styles.css';
 
 export default class onboard extends Component {
   state = { otp: '' };
 
   handleChange = otp => this.setState({ otp });
 
-  /*   clearOtp = () => {
+  clearOtp = () => {
     this.setState({ otp: '' });
   };
 
@@ -19,7 +18,7 @@ export default class onboard extends Component {
   handleSubmit = e => {
     e.preventDefault();
     alert(this.state.otp);
-  }; */
+  };
 
   render() {
     return (
@@ -34,7 +33,9 @@ export default class onboard extends Component {
         <button className="btnClear" type="button" onClick={this.clearOtp}>
           Clear
         </button>
-        <button className="btnGet">Submit</button>
+        <button className="btnSubmit" type="button" onClick={this.Submit}>
+          Submit
+        </button>
       </form>
     );
   }
