@@ -13,6 +13,7 @@ function MaintenanceWOForm({
   comments,
   workOrderListState,
   currentWO,
+  close,
 }) {
   const [workOrder, setWorkOrder] = useState({
     comment: '',
@@ -62,10 +63,12 @@ function MaintenanceWOForm({
   const handleSubmit = e => {
     e.preventDefault();
     postComWO(authState, workOrder);
+    close();
   };
   const handleComplete = e => {
     e.preventDefault();
     putWO(authState, { status: 5 });
+    close();
   };
 
   return (

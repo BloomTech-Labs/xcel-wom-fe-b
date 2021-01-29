@@ -8,7 +8,7 @@ import WorkOrderPage from '../WorkOrderForm/WorkOrderPage';
 
 import axios from 'axios';
 
-function DashBoardPage(props) {
+function DashBoardPage({ close }) {
   const [workorders, setWorkorders] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -91,6 +91,7 @@ function DashBoardPage(props) {
                     return item.comment;
                   })}
                   currentWO={currentWO}
+                  close={handleCancel}
                 />
               ) : (
                 ''
