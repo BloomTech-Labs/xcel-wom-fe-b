@@ -31,4 +31,5 @@ function RenderHomePage(props) {
     </div>
   );
 }
+
 export default RenderHomePage;

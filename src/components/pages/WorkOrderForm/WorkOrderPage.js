@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import { useOktaAuth } from '@okta/okta-react';
 import { postWO } from '../../../api/index';
 
+import {useDispatch, useSelector } from 'react-redux';
+import { renderSomething } from '../../../state/actions/allWo';
+
 import { Form, Input, Button, Select } from 'antd';
+
+
 
 function WorkOrderPage({ LoadingComponent }) {
   //State
@@ -22,7 +27,6 @@ function WorkOrderPage({ LoadingComponent }) {
   const { authState } = useOktaAuth();
 
   //Handle changes
-
   const handleChange = e => {
     setWorkOrder({ ...workOrder, [e.target.name]: e.target.value });
   };
@@ -38,6 +42,15 @@ function WorkOrderPage({ LoadingComponent }) {
   const handleSubmit = e => {
     postWO(authState, workOrder);
   };
+
+const dispatch = useDispatch();
+const workOrders1 = useSelector((state) => state.workOrders.workorders);
+
+console.log("workOrders1", workOrders1)
+
+useEffect(() => {
+  dispatch(renderSomething(1, authState));
+}, []) 
 
   return (
     <>

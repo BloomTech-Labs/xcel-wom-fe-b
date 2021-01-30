@@ -1,38 +1,25 @@
 import axios from 'axios';
+import { getAuthHeader } from '../../api/index';
 
-// 
 export const GET_WORKORDERS = 'GET_WORKORDERS';
 export const GET_WORKORDER = 'GET_WORKORDER';
 export const SUBMIT_WORKORDER = 'SUBMIT_WORKORDER';
 export const MARK_URGENT = 'MARK_URGENT';
 export const MARK_NORMAL = 'MARK_NORMAL';
+export const RENDER_SOMETHING = 'RENDER_SOMETHING';
 
-const getWorkOrders = () => async dispatch => {
-    try {
-        const res = await axios.get(`https://xcel-wom-api-b.herokuapp.com/company/${companyId}/orders`);
+export const renderSomething = (companyId, authState) => (dispatch) => {
+    console.log(companyId);
+    const headers = getAuthHeader(authState);
+    return axios
+        .get(`https://xcel-wom-api-b.herokuapp.com/company/${companyId}/orders`, {headers})
+        .then(response => {
+            console.log( "response");
             dispatch({
-                type: GET_WORKORDERS,
-                payload: res.companyId,
-    }) 
-} catch (err) {
-    dispatch({
-      type: WO_ERROR,
-      payload: err,
-    });
-  }
-
-const geWorkOrder = () => async dispatch => {
-    try  {
-        const res = await axios.get(`https://xcel-wom-api-b.herokuapp.com/company/${companyId}/orders/${workOrderId}`);
-
-    dispatch({
-        type: GET_WORKORDER,
-        payload: res.comanyId.workOrderId
-    })
-} catch (err) {
-    dispatch({
-      type: WO_ERROR,
-      payload: err,
-    });
-  }
+                type: RENDER_SOMETHING,
+                payload: response.data
+            })
+        })
+        .catch((err) => console.error(err.message));
+}
 
