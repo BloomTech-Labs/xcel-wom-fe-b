@@ -17,8 +17,9 @@ import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+import { WorkOrderPage } from './components/pages/WorkOrderForm';
+import DashBoardPage from './components/pages/DashBoard/DashBoardPage';
 
-import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
 import MaintenanceCard from './components/common/MaintenanceCard';
 
 import { createStore, applyMiddleware } from 'redux';
@@ -66,6 +67,8 @@ function App() {
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/work-order" component={WorkOrderPage} />
+
+        <SecureRoute path="/dashboard" component={DashBoardPage} />
         <SecureRoute path="/card" component={MaintenanceCard} />
 
 
