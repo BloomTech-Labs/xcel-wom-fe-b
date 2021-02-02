@@ -1,0 +1,85 @@
+.collapse-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+
+}
+
+.collapse-header {
+    width: 16%;
+    text-align: center;
+}
+
+.collapse {
+    text-align: left;
+}
+
+.ant-collapse {
+    border-radius: 0.6rem;
+}
+
+.ant-collapse-item {
+    margin-bottom: 0.5rem;
+}
+
+.ant-collapse-content-box {
+    background-color: rgb(240, 240, 240);
+}
+
+.ant-collapse-header {
+    border:black 10px;
+    border-radius: 0.6rem;
+}
+
+.priority-Critical {
+    color:rgb(188, 80, 144)
+}
+
+.priority-Low {
+    color: rgb(111, 151, 92)
+}
+
+.priority-Medium {
+    color: rgb(210, 212, 98)
+}
+
+.priority-High {
+    color: rgb(255, 99, 97)
+}
+
+.panel-Critical {
+    background-color: rgb(188, 80, 144);
+}
+
+.panel-High {
+    background-color: rgb(255, 99, 97);
+}
+
+.panel-Medium {
+    background-color: rgb(210, 212, 98);
+}
+
+.panel-Low {
+    background-color: rgb(111, 151, 92);
+}
+
+
+.legends-Critical {
+    background-color: rgb(188, 80, 144);
+}
+
+.legends-High {
+    background-color: rgb(255, 99, 97);
+}
+
+.legends-Medium {
+    background-color: rgb(210, 212, 98);
+}
+
+.legends-Low {
+    background-color: rgb(111, 151, 92);
+}
+
+.legends-priority {
+    text-align: right;
+}
