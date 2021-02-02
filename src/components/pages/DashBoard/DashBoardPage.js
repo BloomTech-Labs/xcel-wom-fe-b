@@ -46,7 +46,7 @@ function DashBoardPage({ close }) {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>
