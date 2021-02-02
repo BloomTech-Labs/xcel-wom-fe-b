@@ -2,11 +2,25 @@ import React, { useState, useEffect } from 'react';
 import MaintenanceCard from '../../common/MaintenanceCard';
 import { useOktaAuth } from '@okta/okta-react';
 import { getAuthHeader } from '../../../api/index';
-import { Modal } from 'antd';
+import { Modal, Collapse } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import MaintenceWOForm from '../../common/MaintenanceWOForm';
 import WorkOrderPage from '../WorkOrderForm/WorkOrderPage';
+import './DashBoardStyle.css';
 
 import axios from 'axios';
+
+
+const { Panel } = Collapse;
+const priorityLegends = ['Low', 'Medium', 'High', 'Critical'];
+const statusHeader = [
+  'Unassigned',
+  'Open',
+  'In Progress',
+  'Awaiting Review',
+  'Complete',
+  'Archived',
+];
 
 function DashBoardPage({ close }) {
   const [workorders, setWorkorders] = useState([]);
@@ -60,17 +74,73 @@ function DashBoardPage({ close }) {
       >
         <WorkOrderPage />
       </Modal>
+      {/* *************DEVIN*************** */}
+      <div className="legends-priority">
+        Priorities:{' '}
+        {priorityLegends.map(priority => {
+          return (
+            <>
+              <button className={`legends-${priority}`}>{priority}</button>
+            </>
+          );
+        })}
+      </div>
+      <div className="collapse-container">
+        {statusHeader.map(statusItem => {
+          return (
+            <>
+              <Collapse className="collapse-header" ghost>
+                <Panel
+                  className="panel-header"
+                  header={statusItem}
+                  showArrow={false}
+                >
+                  <Collapse accordion className="collapse" ghost>
+                    {workorders.map(order => {
+                      if (order.status.name.includes(statusItem)) {
+                        return (
+                          <>
+                            <Panel
+                              className={`panel-${order.priority.name}`}
+                              header={order.title}
+                              showArrow={false}
+                              onClick={() => ShowWo(order)}
+                            >
+                              <div
+                                className={`priority-${order.priority.name}`}
+                              >
+                                Priority: {order.priority.name}
+                              </div>
+                              <div>Description: {order.description}</div>
+                              <MenuOutlined onClick={() => ShowWo(order)}>
+                                Edit
+                              </MenuOutlined>
+                            </Panel>
+                          </>
+                        );
+                      } else {
+                        return <></>;
+                      }
+                    })}
+                  </Collapse>
+                </Panel>
+              </Collapse>
+            </>
+          );
+        })}
+      </div>
+      {/* *********************************** */}
       {workorders.map(order => {
         return (
           <>
-            <MaintenanceCard
+            {/* <MaintenanceCard
               key={order.id}
               title={order.title}
               status={order.status.name}
               priority={order.priority.name}
               description={order.description}
               onClick={() => ShowWo(order)}
-            />
+            /> */}
             <Modal
               title="Edit Work Order"
               visible={isModalVisible}
