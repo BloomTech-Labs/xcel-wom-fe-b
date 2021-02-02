@@ -18,8 +18,9 @@ import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { onboard } from './components/pages/onboard';
-
 import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
+import { WorkOrderPage } from './components/pages/WorkOrderForm';
+import DashBoardPage from './components/pages/DashBoard/DashBoardPage';
 
 import MaintenanceCard from './components/common/MaintenanceCard';
 
@@ -59,6 +60,8 @@ function App() {
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/work-order" component={WorkOrderPage} />
+
+        <SecureRoute path="/dashboard" component={DashBoardPage} />
         <SecureRoute path="/card" component={MaintenanceCard} />
 
         <Route component={NotFoundPage} />

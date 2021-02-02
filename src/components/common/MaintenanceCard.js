@@ -1,39 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card } from 'antd';
-import MaintenceWOForm from './MaintenanceWOForm';
-import { Modal } from 'antd';
 
-function MaintenanceCard({ status, priority, description, title }) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+function MaintenanceCard({ status, priority, description, title, onClick }) {
   return (
     <div>
-      <Card
-        title={title || 'Work Order Title'}
-        style={{ width: 300 }}
-        onClick={showModal}
-      >
-        <p>{status || 'Status'}</p>
-        <p>{priority || 'Priority'}</p>
+      <Card title={title || 'Work Order Title'} style={{ width: 300 }}>
+        <p>{`Status: ${status}` || 'Status'}</p>
+        <p>{`Priority: ${priority}` || 'Priority'}</p>
         <p>{description || 'Description...'}</p>
+        <button onClick={onClick}>Edit</button>
       </Card>
-
-      <Modal
-        title="Edit Work Order"
-        visible={isModalVisible}
-        onCancel={handleCancel}
-        cancelButtonProps={{ style: { display: 'none' } }}
-        okButtonProps={{ style: { display: 'none' } }}
-      >
-        <MaintenceWOForm />
-      </Modal>
     </div>
   );
 }

@@ -1,108 +1,93 @@
 import React, { useState } from 'react';
-import 'antd/dist/antd.css';
+import axios from 'axios';
 import { useOktaAuth } from '@okta/okta-react';
-import { postWO } from '../../api/index';
+import { getAuthHeader } from '../../api/index';
 
-import { Form, Input, Button, Select } from 'antd';
-
-function WorkOrderPage({ LoadingComponent }) {
-  //State
+function MaintenanceWOForm({
+  title,
+  date,
+  priority,
+  status,
+  description,
+  id,
+  comments,
+  workOrderListState,
+  currentWO,
+  close,
+}) {
   const [workOrder, setWorkOrder] = useState({
-    title: '',
-    description: '',
-    company: 1,
-    property: 1,
-    createdBy: '00ulthapbErVUwVJy4x6',
-    assignedTo: '00ulthapbErVUwVJy4x6',
-    priority: 2,
-    status: 1,
+    comment: '',
+    workOrder: id,
   });
 
-  //Auth for api call
-  const { authState } = useOktaAuth();
+  const WOurl = `${process.env.REACT_APP_API_URI}/company/1/order/${id}`;
+  const COMurl = `${process.env.REACT_APP_API_URI}/company/1/order/${id}/comments`;
 
-  //Handle changes
+  //Okta auth
+  const { authState } = useOktaAuth();
+  const headers = getAuthHeader(authState);
+
+  const putWO = (authState, workOrder) => {
+    const headers = getAuthHeader(authState);
+    if (!WOurl) {
+      throw new Error('No URL provided');
+    }
+    currentWO.status = { id: 5, name: 'Complete' };
+    console.log(workOrderListState);
+    return axios
+      .put(WOurl, workOrder, { headers })
+      .then(res => {
+        console.log('PUTWO RES: ', res);
+      })
+      .catch(err => err);
+  };
+  const postComWO = (authState, workOrder) => {
+    const headers = getAuthHeader(authState);
+    if (!COMurl) {
+      throw new Error('No URL provided');
+    }
+
+    return axios
+      .post(COMurl, workOrder, { headers })
+      .then(res => {
+        console.log('COMMENT RES: ', res);
+        currentWO.comments.push(res.data.comment);
+      })
+      .catch(err => err);
+  };
 
   const handleChange = e => {
     setWorkOrder({ ...workOrder, [e.target.name]: e.target.value });
   };
 
-  function handleDropdownPriority(value, e) {
-    setWorkOrder({ ...workOrder, priority: value });
-  }
-
-  function handleDropdownStatus(value, e) {
-    setWorkOrder({ ...workOrder, status: value });
-  }
-
   const handleSubmit = e => {
-    postWO(authState, workOrder);
+    e.preventDefault();
+    postComWO(authState, workOrder);
+    close();
+  };
+  const handleComplete = e => {
+    e.preventDefault();
+    putWO(authState, { status: 5 });
+    close();
   };
 
   return (
-    <>
-      <Form
-        labelCol={{
-          span: 4,
-        }}
-        wrapperCol={{
-          span: 14,
-        }}
-        layout="horizontal"
-        initialValues={{}}
-      >
-        <Form.Item
-          label="Work Order Title"
-          help="Maximum of 150 characters allowed."
-          className="WorkOrderTitle"
-        >
-          <Input
-            type="text"
-            name="title"
-            maxLength="150"
-            onChange={handleChange}
-          />
-        </Form.Item>
-        <Form.Item label="Date">
-          <Input
-            type="text"
-            name="date"
-            value={new Date().toISOString().slice(0, 10)}
-            placeholder="yyyy-mm-dd"
-            onChange={handleChange}
-          />
-        </Form.Item>
-        <Form.Item label="Priority">
-          <Select name="priority" onChange={handleDropdownPriority}>
-            <Select.Option value={1}>Critical</Select.Option>
-            <Select.Option value={2}>High</Select.Option>
-            <Select.Option value={3}>Medium</Select.Option>
-            <Select.Option value={4}>Low</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label="Status">
-          <Select name="status" onChange={handleDropdownStatus}>
-            <Select.Option value={1}>Unassigned</Select.Option>
-            <Select.Option value={2}>In Progress</Select.Option>
-            <Select.Option value={3}>Pending Review</Select.Option>
-            <Select.Option value={4}>Completed</Select.Option>
-            <Select.Option value={5}>Closed</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item label="Work Order Description">
-          <Input type="text" name="description" onChange={handleChange} />
-        </Form.Item>
-
-        <Form.Item label="Attachments">
-          <Input type="file" name="attachment" />
-        </Form.Item>
-
-        <Form.Item>
-          <Button onClick={handleSubmit}>Save</Button>
-        </Form.Item>
-      </Form>
-    </>
+    <div>
+      <form>
+        <h1>{title}</h1>
+        <p>Date created: {date}</p>
+        <p>Pirority: {priority}</p>
+        <p>Status: {status}</p>
+        <p>{description}</p>
+        <div>
+          <p>Comments: {comments}</p>
+          <input onChange={handleChange} name="comment" />
+        </div>
+        <button onClick={handleSubmit}>Update Work Order</button>
+        <button onClick={handleComplete}>Mark Complete</button>
+      </form>
+    </div>
   );
 }
 
-export default WorkOrderPage;
+export default MaintenanceWOForm;
