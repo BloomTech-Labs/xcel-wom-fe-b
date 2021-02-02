@@ -17,7 +17,8 @@ import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import { WorkOrderPage } from './components/pages/WorkOrderForm';
+import { onboard } from './components/pages/onboard';
+import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
 import DashBoardPage from './components/pages/DashBoard/DashBoardPage';
 
 import MaintenanceCard from './components/common/MaintenanceCard';
@@ -46,6 +47,7 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
         <Route path="/login" component={LoginPage} />
+        <Route path="/onboarding" component={onboard} />
         <Route path="/implicit/callback" component={LoginCallback} />
 
         {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -60,7 +62,6 @@ function App() {
 
         <SecureRoute path="/dashboard" component={DashBoardPage} />
         <SecureRoute path="/card" component={MaintenanceCard} />
-
 
         <Route component={NotFoundPage} />
       </Switch>
