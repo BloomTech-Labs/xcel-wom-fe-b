@@ -25,7 +25,6 @@ function MaintenanceWOForm({
 
   //Okta auth
   const { authState } = useOktaAuth();
-  const headers = getAuthHeader(authState);
 
   const putWO = (authState, workOrder) => {
     const headers = getAuthHeader(authState);

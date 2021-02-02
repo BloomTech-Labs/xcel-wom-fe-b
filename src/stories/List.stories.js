@@ -66,7 +66,7 @@ export const antList = () => {
       dataSource={data}
       renderItem={item => (
         <AntList.Item>
-          <Card style={{ width: 240 }} cover={<img src={item.thumbnailUrl} />}>
+          <Card style={{ width: 240 }} cover={<img src={item.thumbnailUr} alt={item.title} />}>
             <Card.Meta title={item.title} />
           </Card>
         </AntList.Item>
