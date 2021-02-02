@@ -11,6 +11,9 @@ function MaintenanceWOForm({
   description,
   id,
   comments,
+  workOrderListState,
+  currentWO,
+  close,
 }) {
   const [workOrder, setWorkOrder] = useState({
     comment: '',
@@ -29,9 +32,13 @@ function MaintenanceWOForm({
     if (!WOurl) {
       throw new Error('No URL provided');
     }
+    currentWO.status = { id: 5, name: 'Complete' };
+    console.log(workOrderListState);
     return axios
       .put(WOurl, workOrder, { headers })
-      .then(res => JSON.parse(res.data))
+      .then(res => {
+        console.log('PUTWO RES: ', res);
+      })
       .catch(err => err);
   };
   const postComWO = (authState, workOrder) => {
@@ -39,9 +46,13 @@ function MaintenanceWOForm({
     if (!COMurl) {
       throw new Error('No URL provided');
     }
+
     return axios
       .post(COMurl, workOrder, { headers })
-      .then(res => JSON.parse(res.data))
+      .then(res => {
+        console.log('COMMENT RES: ', res);
+        currentWO.comments.push(res.data.comment);
+      })
       .catch(err => err);
   };
 
@@ -52,10 +63,12 @@ function MaintenanceWOForm({
   const handleSubmit = e => {
     e.preventDefault();
     postComWO(authState, workOrder);
+    close();
   };
   const handleComplete = e => {
     e.preventDefault();
     putWO(authState, { status: 5 });
+    close();
   };
 
   return (

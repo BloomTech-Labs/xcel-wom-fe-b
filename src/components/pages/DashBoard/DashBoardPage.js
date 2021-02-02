@@ -10,6 +10,7 @@ import './DashBoardStyle.css';
 
 import axios from 'axios';
 
+
 const { Panel } = Collapse;
 const priorityLegends = ['Low', 'Medium', 'High', 'Critical'];
 const statusHeader = [
@@ -20,7 +21,8 @@ const statusHeader = [
   'Complete',
   'Archived',
 ];
-function DashBoardPage(props) {
+
+function DashBoardPage({ close }) {
   const [workorders, setWorkorders] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -158,6 +160,8 @@ function DashBoardPage(props) {
                   comments={currentWO.comments.map(item => {
                     return item.comment;
                   })}
+                  currentWO={currentWO}
+                  close={handleCancel}
                 />
               ) : (
                 ''
