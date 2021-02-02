@@ -19,7 +19,6 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { onboard } from './components/pages/onboard';
 import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
-import { WorkOrderPage } from './components/pages/WorkOrderForm';
 import DashBoardPage from './components/pages/DashBoard/DashBoardPage';
 
 import MaintenanceCard from './components/common/MaintenanceCard';
