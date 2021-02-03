@@ -22,11 +22,14 @@ import WorkOrderPage from './components/pages/WorkOrderForm/WorkOrderPage';
 import DashBoardPage from './components/pages/DashBoard/DashBoardPage';
 
 import MaintenanceCard from './components/common/MaintenanceCard';
+import { WOProvider } from './state/WOContext';
 
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <WOProvider>
+        <App />
+      </WOProvider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')

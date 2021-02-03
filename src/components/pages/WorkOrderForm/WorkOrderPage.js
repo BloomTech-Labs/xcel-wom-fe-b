@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import 'antd/dist/antd.css';
 import { useOktaAuth } from '@okta/okta-react';
-import { postWO } from '../../../api/index';
-
+import { getAuthHeader } from '../../../api/index';
 import { Form, Input, Button, Select } from 'antd';
+import axios from 'axios';
+import { WOContext } from '../../../state/WOContext';
 
-function WorkOrderPage({ LoadingComponent }) {
+function WorkOrderPage({ close }) {
   //State
-  const [workOrder, setWorkOrder] = useState({
+  const [workorders, setWorkorders] = useContext(WOContext);
+
+  const [form, setForm] = useState({
     title: '',
     description: '',
     company: 1,
@@ -18,25 +21,41 @@ function WorkOrderPage({ LoadingComponent }) {
     status: 1,
   });
 
+  console.log(form);
+  const WOurl = `${process.env.REACT_APP_API_URI}/company/1/order/`;
+
   //Auth for api call
   const { authState } = useOktaAuth();
 
   //Handle changes
 
   const handleChange = e => {
-    setWorkOrder({ ...workOrder, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   function handleDropdownPriority(value, e) {
-    setWorkOrder({ ...workOrder, priority: value });
+    setForm({ ...form, priority: value });
   }
 
   function handleDropdownStatus(value, e) {
-    setWorkOrder({ ...workOrder, status: value });
+    setForm({ ...form, status: value });
   }
 
+  const postWO = (authState, workOrder) => {
+    const headers = getAuthHeader(authState);
+    if (!WOurl) {
+      throw new Error('No URL provided');
+    }
+    return axios
+      .post(WOurl, workOrder, { headers })
+      .then(setWorkorders([...workorders, workOrder]))
+      .catch(err => err);
+  };
+
   const handleSubmit = e => {
-    postWO(authState, workOrder);
+    e.preventDefault();
+    postWO(authState, form);
+    close();
   };
 
   return (

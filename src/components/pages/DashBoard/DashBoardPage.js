@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import MaintenanceCard from '../../common/MaintenanceCard';
 import { useOktaAuth } from '@okta/okta-react';
 import { getAuthHeader } from '../../../api/index';
@@ -6,7 +6,10 @@ import { Modal, Collapse } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import MaintenceWOForm from '../../common/MaintenanceWOForm';
 import WorkOrderPage from '../WorkOrderForm/WorkOrderPage';
+
+import { WOContext } from '../../../state/WOContext';
 import './DashBoardStyle.css';
+
 
 import axios from 'axios';
 
@@ -23,7 +26,7 @@ const statusHeader = [
 ];
 
 function DashBoardPage({ close }) {
-  const [workorders, setWorkorders] = useState([]);
+  const [workorders, setWorkorders] = useContext(WOContext);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
@@ -72,7 +75,7 @@ function DashBoardPage({ close }) {
         cancelButtonProps={{ style: { display: 'none' } }}
         okButtonProps={{ style: { display: 'none' } }}
       >
-        <WorkOrderPage />
+        <WorkOrderPage close={handleCancel} />
       </Modal>
       {/* *************DEVIN*************** */}
       <div className="legends-priority">
