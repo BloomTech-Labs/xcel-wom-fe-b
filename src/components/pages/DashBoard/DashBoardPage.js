@@ -6,14 +6,30 @@ import { Modal } from 'antd';
 import MaintenceWOForm from '../../common/MaintenanceWOForm';
 import WorkOrderPage from '../WorkOrderForm/WorkOrderPage';
 
-import axios from 'axios';
+import { getWorkOrders } from '../../../state/actions/workorders.actions';
+import {
+  // useDispatch, 
+  useSelector } from 'react-redux';
+import Loader from 'react-loader-spinner';
+import { connect } from 'react-redux';
 
 function DashBoardPage({ close }) {
-  const [workorders, setWorkorders] = useState([]);
+  const workordersLoading = useSelector((state) => state.workorders.isLoading);
+  
+  // const workordersInitialState = mapStateToProps((state) => state.workOrders);
+  // const [workorders, setWorkorders] = useState(workordersInitialState)
+  // const [workorders, setWorkorders] = useState([]);
+  // const allWorkOrders = useSelector((state) => state.workorders);
+  // console.log("allWorkOrders", allWorkOrders);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
-
   const [currentWO, setCurrentWo] = useState(false);
+  // console.log("WORKORDERS INITIAL STATE", workorders)
+
+  const mapStateToProps = state => {
+    const { allWorkOrders } = state;
+  }
 
   const showModal = () => {
     setIsFormVisible(true);
@@ -30,23 +46,42 @@ function DashBoardPage({ close }) {
   };
 
   //Okta auth
-  const { authState } = useOktaAuth();
-  const headers = getAuthHeader(authState);
+  // const { authState } = useOktaAuth();
 
   // API GET CALL
-  useEffect(() => {
-    axios
-      .get(`https://xcel-wom-api-b.herokuapp.com/company/1/order`, { headers })
-      .then(response => {
-        const orders = response.data;
-        console.log('These are the WO: ', orders);
-        setWorkorders(orders);
-        setCurrentWo(orders[0]);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://xcel-wom-api-b.herokuapp.com/company/1/order`, { headers })
+  //     .then(response => {
+  //       const orders = response.data;
+  //       console.log('These are the WO: ', orders);
+  //       setWorkorders(orders);
+  //       setCurrentWo(orders[0]);
+  //     })
+  //     .catch(error => {
+        // console.log(error);
+  //     });
+  // }, []); 
+  // eslint-disable-line react-hooks/exhaustive-deps
+
+// const dispatch = useDispatch();
+
+// useEffect(() => {
+//   dispatch(getWorkOrders(1, authState));
+//   setWorkorders(workordersInitialState)
+//     console.log("WORKORDERS UPDATED STATE", workorders)
+// }, []); // eslint-disable-line react-hooks/exhaustive-deps 
+
+  if (workordersLoading) {
+    return (
+      <Loader
+        type="TailSpin"
+        height="100%"
+        width="100%"
+        timeout={ 3000 }
+      />
+    );
+  }
 
   return (
     <div>
@@ -60,7 +95,7 @@ function DashBoardPage({ close }) {
       >
         <WorkOrderPage />
       </Modal>
-      {workorders.map(order => {
+      {allWorkOrders.map(order => { 
         return (
           <>
             <MaintenanceCard
@@ -99,7 +134,7 @@ function DashBoardPage({ close }) {
             </Modal>
           </>
         );
-      })}
+      }), ""}
     </div>
   );
 }

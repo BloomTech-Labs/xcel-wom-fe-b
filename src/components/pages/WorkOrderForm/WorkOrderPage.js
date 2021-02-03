@@ -3,8 +3,7 @@ import 'antd/dist/antd.css';
 import { useOktaAuth } from '@okta/okta-react';
 import { postWO } from '../../../api/index';
 
-import {useDispatch, useSelector } from 'react-redux';
-import { renderSomething } from '../../../state/actions/allWo';
+
 
 import { Form, Input, Button, Select } from 'antd';
 
@@ -43,14 +42,14 @@ function WorkOrderPage({ LoadingComponent }) {
     postWO(authState, workOrder);
   };
 
-const dispatch = useDispatch();
-const workOrders1 = useSelector((state) => state.workOrders.workorders);
+// const dispatch = useDispatch();
+// const workOrders1 = useSelector((state) => state.workOrders.workorders);
 
-console.log("workOrders1", workOrders1)
+// console.log("workOrders1", workOrders1)
 
-useEffect(() => {
-  dispatch(renderSomething(1, authState));
-}, []); // eslint-disable-line react-hooks/exhaustive-deps 
+// useEffect(() => {
+//   dispatch(getWorkOrders(1, authState));
+// }, []); // eslint-disable-line react-hooks/exhaustive-deps 
 
   return (
     <>

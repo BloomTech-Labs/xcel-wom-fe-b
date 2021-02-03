@@ -3,16 +3,3 @@
 // Actions should be focused to a single purpose. 
 // You can have multiple action creators per file if it makes sense to the purpose those action creators are serving. 
 // Declare action TYPES at the top of the file
-import submitOrder from './submitOrder';
-import markUrgent from './markUrgent';
-import markNormal from './markNormal';
-import inProgress from './inProgress';
-import completed from './completed';
-
-export {
-    submitOrder,
-    markUrgent,
-    markNormal,
-    inProgress,
-    completed
-};

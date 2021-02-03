@@ -14,6 +14,7 @@
     "craco-less": "^1.17.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-loader-spinner": "^4.0.0",
     "react-native": "^0.63.4",
     "react-native-confirmation-code-field": "^6.5.1",
     "react-native-web": "^0.14.10",
@@ -22,6 +23,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-connect": "^10.0.0",
     "style-sheet": "^4.0.4"
   },
   "scripts": {
