@@ -1,34 +1,50 @@
+.container {
+    background-color: rgb(203, 230, 239);
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.avatar-user {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.logout-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 .collapse-container {
     display: flex;
     justify-content: space-between;
-    margin: 0;
-
+    height: 95vh;
+    width: 95vw;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .collapse-header {
     width: 16%;
     text-align: center;
+    border: black 10px;
 }
 
 .collapse {
     text-align: left;
 }
 
-.ant-collapse {
-    border-radius: 0.6rem;
-}
-
 .ant-collapse-item {
+    background-color: rgb(131, 131, 131, 0.15);
     margin-bottom: 0.5rem;
 }
 
-.ant-collapse-content-box {
-    background-color: rgb(240, 240, 240);
+.ant-collapse-header {
 }
 
-.ant-collapse-header {
-    border:black 10px;
-    border-radius: 0.6rem;
+.ant-collapse-content-box {
+    background-color: rgb(216, 213, 213, 0.3);
+
 }
 
 .priority-Critical {
@@ -48,38 +64,45 @@
 }
 
 .panel-Critical {
-    background-color: rgb(188, 80, 144);
+    background-color: rgb(188, 80, 144, 0.6);
 }
 
 .panel-High {
-    background-color: rgb(255, 99, 97);
+    background-color: rgb(255, 99, 97, 0.6);
 }
 
 .panel-Medium {
-    background-color: rgb(210, 212, 98);
+    background-color: rgb(210, 212, 98, 0.6);
 }
 
 .panel-Low {
-    background-color: rgb(111, 151, 92);
+    background-color: rgb(111, 151, 92, 0.6);
 }
 
-
 .legends-Critical {
-    background-color: rgb(188, 80, 144);
+    background-color: rgb(188, 80, 144, 0.6);
+    border: none;
 }
 
 .legends-High {
-    background-color: rgb(255, 99, 97);
+    background-color: rgb(255, 99, 97, 0.6);
+    border: none;
 }
 
 .legends-Medium {
-    background-color: rgb(210, 212, 98);
+    background-color: rgb(210, 212, 98, 0.6);
+    border: none;
 }
 
 .legends-Low {
-    background-color: rgb(111, 151, 92);
+    background-color: rgb(111, 151, 92, 0.6);
+    border: none;
 }
 
 .legends-priority {
     text-align: right;
+}
+
+.panel-content-wo {
+    margin-bottom: 0.5rem;
 }
