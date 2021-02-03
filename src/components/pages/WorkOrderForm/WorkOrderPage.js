@@ -48,7 +48,9 @@ function WorkOrderPage({ close }) {
     }
     return axios
       .post(WOurl, workOrder, { headers })
-      .then(setWorkorders([...workorders, workOrder]))
+      .then(res => {
+        setWorkorders([...workorders, res.data.workOrder]);
+      })
       .catch(err => err);
   };
 
