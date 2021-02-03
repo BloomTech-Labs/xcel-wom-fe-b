@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import MaintenanceCard from '../../common/MaintenanceCard';
 import { useOktaAuth } from '@okta/okta-react';
 import { getAuthHeader } from '../../../api/index';
-import { Modal, Collapse } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { Modal, Collapse, Avatar, Dropdown, Menu } from 'antd';
+import { MenuOutlined, UserOutlined } from '@ant-design/icons';
 import MaintenceWOForm from '../../common/MaintenanceWOForm';
 import WorkOrderPage from '../WorkOrderForm/WorkOrderPage';
 import './DashBoardStyle.css';
 
 import axios from 'axios';
-
 
 const { Panel } = Collapse;
 const priorityLegends = ['Low', 'Medium', 'High', 'Critical'];
@@ -50,7 +49,7 @@ function DashBoardPage({ close }) {
   // API GET CALL
   useEffect(() => {
     axios
-      .get(`https://xcel-wom-api-b.herokuapp.com/company/1/order`, { headers })
+      .get(`https://xcel-wom-api-b.herokuapp.com/company/1/orders`, { headers })
       .then(response => {
         const orders = response.data;
         console.log('These are the WO: ', orders);
@@ -62,9 +61,22 @@ function DashBoardPage({ close }) {
       });
   }, []);
 
+  // Devin's logout button ////////////
+  const { authService } = useOktaAuth();
+  const logout = (
+    <div className="logout-container">
+      <Menu className="logout">
+        <Menu.Item>
+          <a onClick={() => authService.logout()}>Log Out</a>
+        </Menu.Item>
+      </Menu>
+    </div>
+  );
+  ///////////////////////////////
   return (
-    <div>
+    <div className="container">
       <button onClick={showModal}>Create Work Order</button>
+
       <Modal
         title="Edit Work Order"
         visible={isFormVisible}
@@ -74,7 +86,14 @@ function DashBoardPage({ close }) {
       >
         <WorkOrderPage />
       </Modal>
+
       {/* *************DEVIN*************** */}
+      <Dropdown overlay={logout} trigger={['click']}>
+        <div className="avatar-user">
+          <Avatar classname="avatar" icon={<UserOutlined />}></Avatar>
+        </div>
+      </Dropdown>
+
       <div className="legends-priority">
         Priorities:{' '}
         {priorityLegends.map(priority => {
@@ -89,11 +108,16 @@ function DashBoardPage({ close }) {
         {statusHeader.map(statusItem => {
           return (
             <>
-              <Collapse className="collapse-header" ghost>
+              <Collapse
+                className="collapse-header"
+                defaultActiveKey={['1']}
+                bordered={true}
+              >
                 <Panel
                   className="panel-header"
                   header={statusItem}
                   showArrow={false}
+                  key="1"
                 >
                   <Collapse accordion className="collapse" ghost>
                     {workorders.map(order => {
@@ -106,12 +130,18 @@ function DashBoardPage({ close }) {
                               showArrow={false}
                               onClick={() => ShowWo(order)}
                             >
-                              <div
-                                className={`priority-${order.priority.name}`}
-                              >
+                              <div className="panel-content-wo">
+                                Location: {order.property.address}
+                              </div>
+                              <div className="panel-content-wo">
                                 Priority: {order.priority.name}
                               </div>
-                              <div>Description: {order.description}</div>
+                              <div className="panel-content-wo">
+                                Description: {order.description}
+                              </div>
+                              <div className="panel-content-wo">
+                                Created By: {order.createdby.name}
+                              </div>
                               <MenuOutlined onClick={() => ShowWo(order)}>
                                 Edit
                               </MenuOutlined>
