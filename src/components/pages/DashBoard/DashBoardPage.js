@@ -112,6 +112,7 @@ function DashBoardPage({ close }) {
                 className="collapse-header"
                 defaultActiveKey={['1']}
                 bordered={true}
+                ghost
               >
                 <Panel
                   className="panel-header"
